@@ -7,10 +7,17 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     </head>
     <body>
-        <input type="text" placeholder="2、3、4擇一輸入" name="nameId" id="setId" class="form-control"/>
-        <button onclick = "setId()" id="setBtn" class="btn btn-secondary btn-lg">send</button>
-        <button onclick = "distribute()" id="distribute" disabled=true class="btn btn-secondary btn-lg">發牌</button>
-
+        
+        
+        <div class="input-group">
+          
+          <input type="text" placeholder="2、3、4擇一輸入" name="nameId" id="setId" class="form-control"/>
+		  <div class="input-group-append" id="button-addon4">
+            
+        	<button onclick = "setId()" id="setBtn" class="btn btn-outline-secondary">send</button>
+            <button onclick = "distribute()" id="distribute" disabled=true class="btn btn-outline-secondary">發牌</button>
+          </div>
+        </div>
         <!-- <input type="text" placeholder="input....." name="name" id="message" />
         <button onclick = "send()">sendmessage</button> -->
 
@@ -32,11 +39,11 @@
             </div>	
 			
             <div class="form-group">
-                <label for="exampleFormControlInput1">Email address</label>
+                
 				<input type="text" placeholder="王牌: " name="callsuit" id="callsuit" disabled=true style="width: 350px; height: 40px; font-size: 20px;" class="form-control"/><br>
             </div>
 			<div class="form-group">
-    			<label for="exampleFormControlTextarea1">Example textarea</label>
+    			
 				<textarea id="call1" disabled=true style="width: 350px; height: 80px; font-size: 18px;" class="form-control"></textarea>
   			</div>
             <br>------------------------------------
@@ -49,7 +56,7 @@
   		</div>
 		</div>
 		<br>
-        <button id="accumulation1" disabled=true class="btn btn-secondary btn-lg">累積墩數</button><br>
+        <button id="accumulation1" disabled=true class="btn btn-secondary btn-lg">累積墩數</button><br><br>
         <button id="accumulation2" disabled=true class="btn btn-secondary btn-lg">累積墩數</button><br>        
 		<div class="card">
   		<div class="card-body" id="win1">
