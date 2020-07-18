@@ -1,1 +1,8 @@
-
+.wrapper {
+  width: 1200px;
+	margin: 0 auto;
+	background: #F0DBC7;
+	border-left: 1px solid #ddd;
+	border-right: 1px solid #ddd;
+	box-shadow: 12px 0 15px -4px rgba(147, 127, 108, 0.3), -12px 0 8px -4px rgba(147, 127, 108, 0.3);
+}
