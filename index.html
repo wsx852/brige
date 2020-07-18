@@ -24,45 +24,46 @@
     <body>
 	<div id="wrapper">        
         <!--url:http://brige.herokuapp.com/-->
+	<!--輸入與發牌區-->
         <div class="input-group">
-          
-          <input type="text" placeholder="2、3、4擇一輸入" name="nameId" id="setId" class="form-control"/>
-		  <div class="input-group-append" id="button-addon4">
-            
-        	<button onclick = "setId()" id="setBtn" class="btn btn-outline-secondary">send</button>
-            <button onclick = "distribute()" id="distribute" disabled=true class="btn btn-outline-secondary">發牌</button>
-          </div>
+		<input type="text" placeholder="2、3、4擇一輸入" name="nameId" id="setId" class="form-control"/>
+		
+		<div class="input-group-append" id="button-addon4">
+			<button onclick = "setId()" id="setBtn" class="btn btn-outline-secondary">send</button>
+			<button onclick = "distribute()" id="distribute" disabled=true class="btn btn-outline-secondary">發牌</button>
+		</div>
         </div>
         <!-- <input type="text" placeholder="input....." name="name" id="message" />
         <button onclick = "send()">sendmessage</button> -->
+	
+	<!--喊牌區-->
+        <div class="kingcard-area">
+		<div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+			<div class="btn-group mr-2" role="group" aria-label="First group">
+				<button onclick = "noking()" id="suit1" disabled=true type="button" class="btn btn-secondary">no king</button>
+			</div>
 
-        <div style="border:0px orange solid;">
-            ------------------------------------<br>
-            <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-              <div class="btn-group mr-2" role="group" aria-label="First group">
-                <button onclick = "noking()" id="suit1" disabled=true type="button" class="btn btn-secondary">no king</button>
-              </div>
-              <div class="btn-group mr-2" role="group" aria-label="Second group">
-                <button onclick = "spades()" id="suit2" disabled=true type="button" class="btn btn-secondary">桃spade</button>
-                <button onclick = "hearts()" id="suit3" disabled=true type="button" class="btn btn-secondary">心heart</button>
-                <button onclick = "diamonds()" id="suit4" disabled=true type="button" class="btn btn-secondary">方diamond</button>
-                <button onclick = "clubs()" id="suit5" disabled=true type="button" class="btn btn-secondary">梅club</button>
-              </div>
-              <div class="btn-group" role="group" aria-label="Third group">
-	            <button onclick = "pass()" id="suit6" disabled=true type="button" class="btn btn-secondary">pass</button>
-              </div>
-            </div>	
-			
-            <div class="form-group">
-                
-				<input type="text" placeholder="王牌: " name="callsuit" id="callsuit" disabled=true style="width: 350px; height: 40px; font-size: 20px;" class="form-control"/><br>
-            </div>
-			<div class="form-group">
-    			
-				<textarea id="call1" disabled=true style="width: 350px; height: 80px; font-size: 18px;" class="form-control"></textarea>
-  			</div>
-            <br>------------------------------------
-        </div>
+			<div class="btn-group mr-2" role="group" aria-label="Second group">
+				<button onclick = "spades()" id="suit2" disabled=true type="button" class="btn btn-secondary">桃spade</button>
+				<button onclick = "hearts()" id="suit3" disabled=true type="button" class="btn btn-secondary">心heart</button>
+				<button onclick = "diamonds()" id="suit4" disabled=true type="button" class="btn btn-secondary">方diamond</button>
+				<button onclick = "clubs()" id="suit5" disabled=true type="button" class="btn btn-secondary">梅club</button>
+			</div>
+
+			<div class="btn-group" role="group" aria-label="Third group">
+				<button onclick = "pass()" id="suit6" disabled=true type="button" class="btn btn-secondary">pass</button>
+			</div>
+		</div>	
+
+		<div class="form-group">
+			<input type="text" placeholder="王牌: " name="callsuit" id="callsuit" disabled=true style="width: 350px; height: 40px; font-size: 20px;" class="form-control"/><br>
+		</div>
+
+		<div class="form-group">
+			<textarea id="call1" disabled=true style="width: 350px; height: 80px; font-size: 18px;" class="form-control"></textarea>
+		</div>
+          
+	</div>
 	
 
         
