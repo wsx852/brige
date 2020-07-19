@@ -1,460 +1,571 @@
-<html>
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">    
-	<link href="style.css" rel="stylesheet" type="text/css">
-	<style>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">    
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
 	body {
 		font-family: "微軟正黑體", Arial;
-		}
+		background: #eee;
+	}
+	
 	#wrapper {
-		max-width: 1200px;
+		max-width: 750px;
 		margin: 0 auto;
-		/*background: #F0DBC7;*/
+		background: #fff;
 		padding: 30px;
 		border: 1px solid #ddd;
 		margin-top: 15px;
-		}
-	.kingcard-area {
-		/*background: #ccc;*/
-		margin: 25px 0;
-		padding-top: 20px;
-		border-top: 1px solid #ccc;
-		border-bottom: 1px solid #ccc;
+		border-radius: 10px;
 	}
-	</style>
-    </head>
-    <body>
-	<div id="wrapper">        
-        <!--url:http://brige.herokuapp.com/-->
-	<!--輸入與發牌區-->
-        <div class="input-group">
-		<input type="text" placeholder="2、3、4擇一輸入" name="nameId" id="setId" class="form-control"/>
-		
-		<div class="input-group-append" id="button-addon4">
-			<button onclick = "setId()" id="setBtn" class="btn btn-outline-secondary">send</button>
-			<button onclick = "distribute()" id="distribute" disabled=true class="btn btn-outline-secondary">發牌</button>
-		</div>
-        </div>
-        <!-- <input type="text" placeholder="input....." name="name" id="message" />
-        <button onclick = "send()">sendmessage</button> -->
 	
-	<!--喊牌區-->
-        <div class="kingcard-area">
+	@media screen and (max-width: 500px) {
+		#wrapper {
+			padding: 0;
+			margin: 0;
+		}
+	}
+
+	
+	/*輸入與發牌區*/
+	#input-area {
+		
+	}
+	
+	/*喊牌區*/
+	#kingcard-area .form-group {
+		margin-top: 15px;
+	}
+	
+	/*卡牌狀態區*/
+	#playcard-area .area1 {
+		
+	}
+	
+	#playcard-area .area2 {
+		width: 45%;
+		float: left;
+	}
+	
+	#playcard-area .area3 {
+		width: 45%;
+		float: right;
+	}
+	
+	#playcard-area .area4 {
+		clear: both;
+	}
+	
+	/*手排區*/
+	#handcard-area {
+		
+	}
+	
+	/*通用*/
+	hr {
+		margin: 10px 0;
+	}
+	
+	.cardbtn {
+		border-radius: 15px;
+		font-size: 15px;
+		min-height: 35px;
+		width: 80px;
+		color: #fff;
+		display: -webkit-box;
+		display: -webkit-flex;
+		display: -moz-box;
+		display: -ms-flexbox;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 8px;
+		margin-right: 5px;
+
+		-webkit-transition: all 0.4s;
+		-o-transition: all 0.4s;
+		-moz-transition: all 0.4s;
+		transition: all 0.4s;
+	}
+	
+	.btncolor1 {
+		background: #57b846;
+	}
+	
+	.btncolor2 {
+		background: #57b899;
+	}
+	
+	.btncolor3 {
+		background: #457755;
+	}
+	
+	.input {
+		display: block;
+		width: 100%;
+		background: #e6e6e6;
+		line-height: 1.5;
+		color: #666666;
+		font-size: 18px;
+	}
+</style>
+<!--url:http://brige.herokuapp.com/-->
+</head>
+<body>
+<!--wrapper開始-->
+<div id="wrapper">
+	
+	<!--輸入與發牌區開始-->
+	<div id="input-area">
+		<div class="input-group">
+			<input type="text" placeholder="2、3、4擇一輸入" name="nameId" id="setId" class="form-control"/>
+
+			<div class="input-group-append" id="button-addon4">
+				<button onclick = "setId()" id="setBtn" class="btn btn-outline-secondary">send</button>
+				<button onclick = "distribute()" id="distribute" disabled=true class="btn btn-outline-secondary">發牌</button>
+			</div>
+		</div>
+		<!-- <input type="text" placeholder="input....." name="name" id="message" />
+		<button onclick = "send()">sendmessage</button> -->
+	</div>
+	<!--輸入與發牌區結束-->
+	
+	<hr>
+	
+	<!--喊牌區開始-->
+    <div id="kingcard-area">
 		<div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
 			<div class="btn-group mr-2" role="group" aria-label="First group">
-				<button onclick = "noking()" id="suit1" disabled=true type="button" class="btn btn-secondary">no king</button>
+				<button onclick = "noking()" id="suit1" disabled=true type="button" class="cardbtn btncolor1">no king</button>
 			</div>
 
 			<div class="btn-group mr-2" role="group" aria-label="Second group">
-				<button onclick = "spades()" id="suit2" disabled=true type="button" class="btn btn-secondary">桃spade</button>
-				<button onclick = "hearts()" id="suit3" disabled=true type="button" class="btn btn-secondary">心heart</button>
-				<button onclick = "diamonds()" id="suit4" disabled=true type="button" class="btn btn-secondary">方diamond</button>
-				<button onclick = "clubs()" id="suit5" disabled=true type="button" class="btn btn-secondary">梅club</button>
+				<button onclick = "spades()" id="suit2" disabled=true type="button" class="cardbtn btncolor2">桃spade</button>
+				<button onclick = "hearts()" id="suit3" disabled=true type="button" class="cardbtn btncolor2">心heart</button>
+				<button onclick = "diamonds()" id="suit4" disabled=true type="button" class="cardbtn btncolor2">方diamond</button>
+				<button onclick = "clubs()" id="suit5" disabled=true type="button" class="cardbtn btncolor2">梅club</button>
 			</div>
 
 			<div class="btn-group" role="group" aria-label="Third group">
-				<button onclick = "pass()" id="suit6" disabled=true type="button" class="btn btn-secondary">pass</button>
+				<button onclick = "pass()" id="suit6" disabled=true type="button" class="cardbtn btncolor3">pass</button>
 			</div>
-		</div>	
-
-		<div class="form-group">
-			<input type="text" placeholder="王牌: " name="callsuit" id="callsuit" disabled=true style="width: 350px; height: 40px; font-size: 20px;" class="form-control"/><br>
 		</div>
 
 		<div class="form-group">
-			<textarea id="call1" disabled=true style="width: 350px; height: 80px; font-size: 18px;" class="form-control"></textarea>
+			<input type="text" placeholder="王牌: " name="callsuit" id="callsuit" disabled=true class="form-control input1"/>
+		</div>
+
+		<div class="form-group">
+			<textarea id="call1" disabled=true style="height: 100px;" class="form-control input1"></textarea>
 		</div>
           
 	</div>
+	<!--喊牌區結束-->
 	
-
-        
-		<div class="card">
-  		<div class="card-body" id="put1">    		
-  		</div>
+	<hr>
+	
+	<!--卡牌狀態區開始-->
+	<div id="playcard-area">
+		<div class="area1">
+			本局出牌：<div id="put1"></div>
 		</div>
-		<br>
-        <button id="accumulation1" disabled=true class="btn btn-secondary btn-lg">累積墩數</button><br><br>
-        <button id="accumulation2" disabled=true class="btn btn-secondary btn-lg">累積墩數</button><br>        
-		<div class="card">
-  		<div class="card-body" id="win1">
-    		
-  		</div>
-		</div>        
-        <div style="border:0px orange solid;">
-            ------------------------------------<br>
-            <button onclick = "card1()" id="card1" disabled=true class="btn btn-secondary btn-lg"></button>
-            <button onclick = "card2()" id="card2" disabled=true class="btn btn-secondary btn-lg"></button>
-            <button onclick = "card3()" id="card3" disabled=true class="btn btn-secondary btn-lg"></button>
-            <button onclick = "card4()" id="card4" disabled=true class="btn btn-secondary btn-lg"></button>
-            <button onclick = "card5()" id="card5" disabled=true class="btn btn-secondary btn-lg"></button>
-            <button onclick = "card6()" id="card6" disabled=true class="btn btn-secondary btn-lg"></button><br>
-            <br><button onclick = "card7()" id="card7" disabled=true class="btn btn-secondary btn-lg"></button>
-            <button onclick = "card8()" id="card8" disabled=true class="btn btn-secondary btn-lg"></button>
-            <button onclick = "card9()" id="card9" disabled=true class="btn btn-secondary btn-lg"></button>
-            <button onclick = "card10()" id="card10" disabled=true class="btn btn-secondary btn-lg"></button>
-            <button onclick = "card11()" id="card11" disabled=true class="btn btn-secondary btn-lg"></button>
-            <button onclick = "card12()" id="card12" disabled=true class="btn btn-secondary btn-lg"></button>
-            <button onclick = "card13()" id="card13" disabled=true class="btn btn-secondary btn-lg"></button>
-        </div>
+		
+		<div class="area2">
+			1、3累積墩數<br><div id="accumulation1"></div>
+			<button id="accumulation1" disabled=true class="btn btn-secondary btn-lg"></button>
+		</div>
+		
+		<div class="area3">
+			2、4累積墩數<br><div id="accumulation2"></div>
+		</div>
+		
+		<div class="area4">
+			<div id="win1"></div>
+		</div>
 
-        <script>
-            var HOST = location.origin;
-            var ws = new WebSocket(HOST);
-
-            var cards = [];// 發的牌
-            var cardsremove = [];// 發的牌，但出過會移除
-            var everycards = "";// 每回合出的牌
-
-            function distribute() {
-                ws.send("發牌");
-            }
-
-            function setId() {
-                var id = document.getElementById("setId").value;
-                HOST = location.origin.replace(/^http/, 'ws') + "?userId=" + id;
-                ws = new WebSocket(HOST);
-                ws.onmessage = function (event) {
-                    if (event.data.indexOf("connect success") != -1) {
-                        alert(event.data);
-                        return;
-                    }
-                    if (event.data.indexOf("喊") != -1) {
-                        if (event.data.indexOf("王牌") != -1) {
-                            document.getElementById("callsuit").value = event.data;
-                        } else {
-                            document.getElementById("call1").innerHTML = event.data;
-                        }
-                    } else if (event.data.indexOf("出") != -1) {
-                        document.getElementById("put1").innerHTML = event.data;
-                        everycards = event.data;
-                    } else if (event.data == "能叫牌" || event.data == "不能叫牌") {
-                        cancall(event.data);
-                    } else if (event.data == "能亮牌" || event.data == "不能亮牌") {
-                        canput(event.data); 
-                    } else if (event.data.indexOf("累積") != -1) {
-                        if (event.data.substr(0, 1) == 1) {
-                            document.getElementById("accumulation1").innerHTML = event.data;
-                        } else {
-                            document.getElementById("accumulation2").innerHTML = event.data;
-                        }
-                    } else if (event.data.indexOf("贏了") != -1) {
-                        document.getElementById("win1").innerHTML = "已經獲得勝利~~~~~~~~~~~~~~" + event.data + "~~~~~~~~~~~~~~~~~~~~~~";
-                    } else {
-                        distributecards(event.data);
-                    }
-                }
-                keepheartbeat();
-                document.getElementById("setId").disabled = true;
-                document.getElementById("setBtn").disabled = true;
-                if (id == 1) {
-                    document.getElementById("distribute").disabled = false;
-                }
-            }
-
-            function distributecards(message) {//發牌
-                cards = message.split(",");
-                cardsremove = message.split(",");
-                document.getElementById("callsuit").value = "目前王牌: ";
-                document.getElementById("call1").innerHTML = "";
-                document.getElementById("put1").innerHTML = "";
-                document.getElementById("accumulation1").innerHTML = "累積墩數";
-                document.getElementById("accumulation2").innerHTML = "累積墩數";
-                document.getElementById("win1").innerHTML = "";
-
-                for (var i = 0; i < 13; i++) {
-                    document.getElementById("card" + (i + 1)).innerHTML = cards[i];
-                    document.getElementById("card" + (i + 1)).style.visibility = "visible";
-                }
-            }
-
-            function cancall(message) {
-                if (message == "能叫牌") {
-                    document.getElementById("suit1").disabled = false;
-                    document.getElementById("suit2").disabled = false;
-                    document.getElementById("suit3").disabled = false;
-                    document.getElementById("suit4").disabled = false;
-                    document.getElementById("suit5").disabled = false;
-                    document.getElementById("suit6").disabled = false;
-                }
-                if (message == "不能叫牌") {
-                    document.getElementById("suit1").disabled = true;
-                    document.getElementById("suit2").disabled = true;
-                    document.getElementById("suit3").disabled = true;
-                    document.getElementById("suit4").disabled = true;
-                    document.getElementById("suit5").disabled = true;
-                    document.getElementById("suit6").disabled = true;
-                }
-            }
-
-            function canput(message) {
-                if (message == "能亮牌") {
-                    document.getElementById("card1").disabled = false;
-                    document.getElementById("card2").disabled = false;
-                    document.getElementById("card3").disabled = false;
-                    document.getElementById("card4").disabled = false;
-                    document.getElementById("card5").disabled = false;
-                    document.getElementById("card6").disabled = false;
-                    document.getElementById("card7").disabled = false;
-                    document.getElementById("card8").disabled = false;
-                    document.getElementById("card9").disabled = false;
-                    document.getElementById("card10").disabled = false;
-                    document.getElementById("card11").disabled = false;
-                    document.getElementById("card12").disabled = false;
-                    document.getElementById("card13").disabled = false;
-                }
-                if (message == "不能亮牌") {
-                    document.getElementById("card1").disabled = true;
-                    document.getElementById("card2").disabled = true;
-                    document.getElementById("card3").disabled = true;
-                    document.getElementById("card4").disabled = true;
-                    document.getElementById("card5").disabled = true;
-                    document.getElementById("card6").disabled = true;
-                    document.getElementById("card7").disabled = true;
-                    document.getElementById("card8").disabled = true;
-                    document.getElementById("card9").disabled = true;
-                    document.getElementById("card10").disabled = true;
-                    document.getElementById("card11").disabled = true;
-                    document.getElementById("card12").disabled = true;
-                    document.getElementById("card13").disabled = true;
-                }
-            }
-
-            function noking() {
-                ws.send("喊" + "noking");
-            }
-
-            function spades() {
-                ws.send("喊" + "桃");
-            }
-
-            function hearts() {
-                ws.send("喊" + "心");
-            }
-
-            function diamonds() {
-                ws.send("喊" + "方");
-            }
-
-            function clubs() {
-                ws.send("喊" + "梅");
-            }
-
-            function pass() {
-                ws.send("喊" + "pass");
-            }
-
-            function send() {
-                // 得到內容
-                var message = document.getElementById("message").value;
-                // 發送給websocket
-                ws.send(message);
-            }
-
-            function keepheartbeat() {
-                heartbeat = setInterval(function () {
-                    ws.send("心跳");
-                }, 40000);
-            }
-
-            function card1() {
-                if (checkcansuit(cards[0]) == "no") {
-                    alert("不可以出這個花色");
-                    return;
-                }
-                ws.send("出" + cards[0]);
-                cardsremove.forEach(function(item, index) {
-                    if (item == cards[0]) {
-                        cardsremove.splice(index, 1);
-                    }
-                });
-                document.getElementById("card1").style.visibility = "hidden";
-            }
-
-            function card2() {
-                if (checkcansuit(cards[1]) == "no") {
-                    alert("不可以出這個花色");
-                    return;
-                }
-                ws.send("出" + cards[1]);
-                cardsremove.forEach(function(item, index) {
-                    if (item == cards[1]) {
-                        cardsremove.splice(index, 1);
-                    }
-                });
-                document.getElementById("card2").style.visibility = "hidden";
-            }
-
-            function card3() {
-                if (checkcansuit(cards[2]) == "no") {
-                    alert("不可以出這個花色");
-                    return;
-                }
-                ws.send("出" + cards[2]);
-                cardsremove.forEach(function(item, index) {
-                    if (item == cards[2]) {
-                        cardsremove.splice(index, 1);
-                    }
-                });
-                document.getElementById("card3").style.visibility = "hidden";
-            }
-
-            function card4() {
-                if (checkcansuit(cards[3]) == "no") {
-                    alert("不可以出這個花色");
-                    return;
-                }
-                ws.send("出" + cards[3]);
-                cardsremove.forEach(function(item, index) {
-                    if (item == cards[3]) {
-                        cardsremove.splice(index, 1);
-                    }
-                });
-                document.getElementById("card4").style.visibility = "hidden";
-            }
-
-            function card5() {
-                if (checkcansuit(cards[4]) == "no") {
-                    alert("不可以出這個花色");
-                    return;
-                }
-                ws.send("出" + cards[4]);
-                cardsremove.forEach(function(item, index) {
-                    if (item == cards[4]) {
-                        cardsremove.splice(index, 1);
-                    }
-                });
-                document.getElementById("card5").style.visibility = "hidden";
-            }
-
-            function card6() {
-                if (checkcansuit(cards[5]) == "no") {
-                    alert("不可以出這個花色");
-                    return;
-                }
-                ws.send("出" + cards[5]);
-                cardsremove.forEach(function(item, index) {
-                    if (item == cards[5]) {
-                        cardsremove.splice(index, 1);
-                    }
-                });
-                document.getElementById("card6").style.visibility = "hidden";
-            }
-
-            function card7() {
-                if (checkcansuit(cards[6]) == "no") {
-                    alert("不可以出這個花色");
-                    return;
-                }
-                ws.send("出" + cards[6]);
-                cardsremove.forEach(function(item, index) {
-                    if (item == cards[6]) {
-                        cardsremove.splice(index, 1);
-                    }
-                });
-                document.getElementById("card7").style.visibility = "hidden";
-            }
-
-            function card8() {
-                if (checkcansuit(cards[7]) == "no") {
-                    alert("不可以出這個花色");
-                    return;
-                }
-                ws.send("出" + cards[7]);
-                cardsremove.forEach(function(item, index) {
-                    if (item == cards[7]) {
-                        cardsremove.splice(index, 1);
-                    }
-                });
-                document.getElementById("card8").style.visibility = "hidden";
-            }
-
-            function card9() {
-                if (checkcansuit(cards[8]) == "no") {
-                    alert("不可以出這個花色");
-                    return;
-                }
-                ws.send("出" + cards[8]);
-                cardsremove.forEach(function(item, index) {
-                    if (item == cards[8]) {
-                        cardsremove.splice(index, 1);
-                    }
-                });
-                document.getElementById("card9").style.visibility = "hidden";
-            }
-
-            function card10() {
-                if (checkcansuit(cards[9]) == "no") {
-                    alert("不可以出這個花色");
-                    return;
-                }
-                ws.send("出" + cards[9]);
-                cardsremove.forEach(function(item, index) {
-                    if (item == cards[9]) {
-                        cardsremove.splice(index, 1);
-                    }
-                });
-                document.getElementById("card10").style.visibility = "hidden";
-            }
-
-            function card11() {
-                if (checkcansuit(cards[10]) == "no") {
-                    alert("不可以出這個花色");
-                    return;
-                }
-                ws.send("出" + cards[10]);
-                cardsremove.forEach(function(item, index) {
-                    if (item == cards[10]) {
-                        cardsremove.splice(index, 1);
-                    }
-                });
-                document.getElementById("card11").style.visibility = "hidden";
-            }
-
-            function card12() {
-                if (checkcansuit(cards[11]) == "no") {
-                    alert("不可以出這個花色");
-                    return;
-                }
-                ws.send("出" + cards[11]);
-                cardsremove.forEach(function(item, index) {
-                    if (item == cards[11]) {
-                        cardsremove.splice(index, 1);
-                    }
-                });
-                document.getElementById("card12").style.visibility = "hidden";
-            }
-
-            function card13() {
-                if (checkcansuit(cards[12]) == "no") {
-                    alert("不可以出這個花色");
-                    return;
-                }
-                ws.send("出" + cards[12]);
-                cardsremove.forEach(function(item, index) {
-                    if (item == cards[12]) {
-                        cardsremove.splice(index, 1);
-                    }
-                });
-                document.getElementById("card13").style.visibility = "hidden";
-            }
-
-            function checkcansuit(suit) {
-                if (everycards != undefined && everycards.split(",").length != 4) {
-                    let str = cardsremove + "."
-                    if (everycards.split(",")[0].substr(2, 1) == suit.substr(0, 1)) {
-                        return "";
-                    } else if (str.indexOf(everycards.split(",")[0].substr(2, 1)) != -1) {
-                        return "no";
-                    }
-                }
-            }
-
-        </script>
 	</div>
-    </body>
+	<!--卡牌狀態區結束-->
+    
+	<hr>
+	
+	<!--手牌區開始-->
+	<div id="handcard-area">
+		<button onclick = "card1()" id="card1" disabled=true class="btn btn-secondary btn-lg"></button>
+		<button onclick = "card2()" id="card2" disabled=true class="btn btn-secondary btn-lg"></button>
+		<button onclick = "card3()" id="card3" disabled=true class="btn btn-secondary btn-lg"></button>
+		<button onclick = "card4()" id="card4" disabled=true class="btn btn-secondary btn-lg"></button>
+		<button onclick = "card5()" id="card5" disabled=true class="btn btn-secondary btn-lg"></button>
+		<button onclick = "card6()" id="card6" disabled=true class="btn btn-secondary btn-lg"></button>
+		<br><br>
+		<button onclick = "card7()" id="card7" disabled=true class="btn btn-secondary btn-lg"></button>
+		<button onclick = "card8()" id="card8" disabled=true class="btn btn-secondary btn-lg"></button>
+		<button onclick = "card9()" id="card9" disabled=true class="btn btn-secondary btn-lg"></button>
+		<button onclick = "card10()" id="card10" disabled=true class="btn btn-secondary btn-lg"></button>
+		<button onclick = "card11()" id="card11" disabled=true class="btn btn-secondary btn-lg"></button>
+		<button onclick = "card12()" id="card12" disabled=true class="btn btn-secondary btn-lg"></button>
+		<button onclick = "card13()" id="card13" disabled=true class="btn btn-secondary btn-lg"></button>
+	</div>
+	<!--手牌區結束-->
+
+</div>
+<!--wrapper結束-->
+
+<script>
+	var HOST = location.origin;
+	var ws = new WebSocket(HOST);
+
+	var cards = [];// 發的牌
+	var cardsremove = [];// 發的牌，但出過會移除
+	var everycards = "";// 每回合出的牌
+
+	function distribute() {
+		ws.send("發牌");
+	}
+
+	function setId() {
+		var id = document.getElementById("setId").value;
+		HOST = location.origin.replace(/^http/, 'ws') + "?userId=" + id;
+		ws = new WebSocket(HOST);
+		ws.onmessage = function (event) {
+			if (event.data.indexOf("connect success") != -1) {
+				alert(event.data);
+				return;
+			}
+			if (event.data.indexOf("喊") != -1) {
+				if (event.data.indexOf("王牌") != -1) {
+					document.getElementById("callsuit").value = event.data;
+				} else {
+					document.getElementById("call1").innerHTML = event.data;
+				}
+			} else if (event.data.indexOf("出") != -1) {
+				document.getElementById("put1").innerHTML = event.data;
+				everycards = event.data;
+			} else if (event.data == "能叫牌" || event.data == "不能叫牌") {
+				cancall(event.data);
+			} else if (event.data == "能亮牌" || event.data == "不能亮牌") {
+				canput(event.data); 
+			} else if (event.data.indexOf("累積") != -1) {
+				if (event.data.substr(0, 1) == 1) {
+					document.getElementById("accumulation1").innerHTML = event.data;
+				} else {
+					document.getElementById("accumulation2").innerHTML = event.data;
+				}
+			} else if (event.data.indexOf("贏了") != -1) {
+				document.getElementById("win1").innerHTML = "已經獲得勝利~~~~~~~~~~~~~~" + event.data + "~~~~~~~~~~~~~~~~~~~~~~";
+			} else {
+				distributecards(event.data);
+			}
+		}
+		keepheartbeat();
+		document.getElementById("setId").disabled = true;
+		document.getElementById("setBtn").disabled = true;
+		if (id == 1) {
+			document.getElementById("distribute").disabled = false;
+		}
+	}
+
+	function distributecards(message) {//發牌
+		cards = message.split(",");
+		cardsremove = message.split(",");
+		document.getElementById("callsuit").value = "目前王牌: ";
+		document.getElementById("call1").innerHTML = "";
+		document.getElementById("put1").innerHTML = "";
+		document.getElementById("accumulation1").innerHTML = "累積墩數";
+		document.getElementById("accumulation2").innerHTML = "累積墩數";
+		document.getElementById("win1").innerHTML = "";
+
+		for (var i = 0; i < 13; i++) {
+			document.getElementById("card" + (i + 1)).innerHTML = cards[i];
+			document.getElementById("card" + (i + 1)).style.visibility = "visible";
+		}
+	}
+
+	function cancall(message) {
+		if (message == "能叫牌") {
+			document.getElementById("suit1").disabled = false;
+			document.getElementById("suit2").disabled = false;
+			document.getElementById("suit3").disabled = false;
+			document.getElementById("suit4").disabled = false;
+			document.getElementById("suit5").disabled = false;
+			document.getElementById("suit6").disabled = false;
+		}
+		if (message == "不能叫牌") {
+			document.getElementById("suit1").disabled = true;
+			document.getElementById("suit2").disabled = true;
+			document.getElementById("suit3").disabled = true;
+			document.getElementById("suit4").disabled = true;
+			document.getElementById("suit5").disabled = true;
+			document.getElementById("suit6").disabled = true;
+		}
+	}
+
+	function canput(message) {
+		if (message == "能亮牌") {
+			document.getElementById("card1").disabled = false;
+			document.getElementById("card2").disabled = false;
+			document.getElementById("card3").disabled = false;
+			document.getElementById("card4").disabled = false;
+			document.getElementById("card5").disabled = false;
+			document.getElementById("card6").disabled = false;
+			document.getElementById("card7").disabled = false;
+			document.getElementById("card8").disabled = false;
+			document.getElementById("card9").disabled = false;
+			document.getElementById("card10").disabled = false;
+			document.getElementById("card11").disabled = false;
+			document.getElementById("card12").disabled = false;
+			document.getElementById("card13").disabled = false;
+		}
+		if (message == "不能亮牌") {
+			document.getElementById("card1").disabled = true;
+			document.getElementById("card2").disabled = true;
+			document.getElementById("card3").disabled = true;
+			document.getElementById("card4").disabled = true;
+			document.getElementById("card5").disabled = true;
+			document.getElementById("card6").disabled = true;
+			document.getElementById("card7").disabled = true;
+			document.getElementById("card8").disabled = true;
+			document.getElementById("card9").disabled = true;
+			document.getElementById("card10").disabled = true;
+			document.getElementById("card11").disabled = true;
+			document.getElementById("card12").disabled = true;
+			document.getElementById("card13").disabled = true;
+		}
+	}
+
+	function noking() {
+		ws.send("喊" + "noking");
+	}
+
+	function spades() {
+		ws.send("喊" + "桃");
+	}
+
+	function hearts() {
+		ws.send("喊" + "心");
+	}
+
+	function diamonds() {
+		ws.send("喊" + "方");
+	}
+
+	function clubs() {
+		ws.send("喊" + "梅");
+	}
+
+	function pass() {
+		ws.send("喊" + "pass");
+	}
+
+	function send() {
+		// 得到內容
+		var message = document.getElementById("message").value;
+		// 發送給websocket
+		ws.send(message);
+	}
+
+	function keepheartbeat() {
+		heartbeat = setInterval(function () {
+			ws.send("心跳");
+		}, 40000);
+	}
+
+	function card1() {
+		if (checkcansuit(cards[0]) == "no") {
+			alert("不可以出這個花色");
+			return;
+		}
+		ws.send("出" + cards[0]);
+		cardsremove.forEach(function(item, index) {
+			if (item == cards[0]) {
+				cardsremove.splice(index, 1);
+			}
+		});
+		document.getElementById("card1").style.visibility = "hidden";
+	}
+
+	function card2() {
+		if (checkcansuit(cards[1]) == "no") {
+			alert("不可以出這個花色");
+			return;
+		}
+		ws.send("出" + cards[1]);
+		cardsremove.forEach(function(item, index) {
+			if (item == cards[1]) {
+				cardsremove.splice(index, 1);
+			}
+		});
+		document.getElementById("card2").style.visibility = "hidden";
+	}
+
+	function card3() {
+		if (checkcansuit(cards[2]) == "no") {
+			alert("不可以出這個花色");
+			return;
+		}
+		ws.send("出" + cards[2]);
+		cardsremove.forEach(function(item, index) {
+			if (item == cards[2]) {
+				cardsremove.splice(index, 1);
+			}
+		});
+		document.getElementById("card3").style.visibility = "hidden";
+	}
+
+	function card4() {
+		if (checkcansuit(cards[3]) == "no") {
+			alert("不可以出這個花色");
+			return;
+		}
+		ws.send("出" + cards[3]);
+		cardsremove.forEach(function(item, index) {
+			if (item == cards[3]) {
+				cardsremove.splice(index, 1);
+			}
+		});
+		document.getElementById("card4").style.visibility = "hidden";
+	}
+
+	function card5() {
+		if (checkcansuit(cards[4]) == "no") {
+			alert("不可以出這個花色");
+			return;
+		}
+		ws.send("出" + cards[4]);
+		cardsremove.forEach(function(item, index) {
+			if (item == cards[4]) {
+				cardsremove.splice(index, 1);
+			}
+		});
+		document.getElementById("card5").style.visibility = "hidden";
+	}
+
+	function card6() {
+		if (checkcansuit(cards[5]) == "no") {
+			alert("不可以出這個花色");
+			return;
+		}
+		ws.send("出" + cards[5]);
+		cardsremove.forEach(function(item, index) {
+			if (item == cards[5]) {
+				cardsremove.splice(index, 1);
+			}
+		});
+		document.getElementById("card6").style.visibility = "hidden";
+	}
+
+	function card7() {
+		if (checkcansuit(cards[6]) == "no") {
+			alert("不可以出這個花色");
+			return;
+		}
+		ws.send("出" + cards[6]);
+		cardsremove.forEach(function(item, index) {
+			if (item == cards[6]) {
+				cardsremove.splice(index, 1);
+			}
+		});
+		document.getElementById("card7").style.visibility = "hidden";
+	}
+
+	function card8() {
+		if (checkcansuit(cards[7]) == "no") {
+			alert("不可以出這個花色");
+			return;
+		}
+		ws.send("出" + cards[7]);
+		cardsremove.forEach(function(item, index) {
+			if (item == cards[7]) {
+				cardsremove.splice(index, 1);
+			}
+		});
+		document.getElementById("card8").style.visibility = "hidden";
+	}
+
+	function card9() {
+		if (checkcansuit(cards[8]) == "no") {
+			alert("不可以出這個花色");
+			return;
+		}
+		ws.send("出" + cards[8]);
+		cardsremove.forEach(function(item, index) {
+			if (item == cards[8]) {
+				cardsremove.splice(index, 1);
+			}
+		});
+		document.getElementById("card9").style.visibility = "hidden";
+	}
+
+	function card10() {
+		if (checkcansuit(cards[9]) == "no") {
+			alert("不可以出這個花色");
+			return;
+		}
+		ws.send("出" + cards[9]);
+		cardsremove.forEach(function(item, index) {
+			if (item == cards[9]) {
+				cardsremove.splice(index, 1);
+			}
+		});
+		document.getElementById("card10").style.visibility = "hidden";
+	}
+
+	function card11() {
+		if (checkcansuit(cards[10]) == "no") {
+			alert("不可以出這個花色");
+			return;
+		}
+		ws.send("出" + cards[10]);
+		cardsremove.forEach(function(item, index) {
+			if (item == cards[10]) {
+				cardsremove.splice(index, 1);
+			}
+		});
+		document.getElementById("card11").style.visibility = "hidden";
+	}
+
+	function card12() {
+		if (checkcansuit(cards[11]) == "no") {
+			alert("不可以出這個花色");
+			return;
+		}
+		ws.send("出" + cards[11]);
+		cardsremove.forEach(function(item, index) {
+			if (item == cards[11]) {
+				cardsremove.splice(index, 1);
+			}
+		});
+		document.getElementById("card12").style.visibility = "hidden";
+	}
+
+	function card13() {
+		if (checkcansuit(cards[12]) == "no") {
+			alert("不可以出這個花色");
+			return;
+		}
+		ws.send("出" + cards[12]);
+		cardsremove.forEach(function(item, index) {
+			if (item == cards[12]) {
+				cardsremove.splice(index, 1);
+			}
+		});
+		document.getElementById("card13").style.visibility = "hidden";
+	}
+
+	function checkcansuit(suit) {
+		if (everycards != undefined && everycards.split(",").length != 4) {
+			let str = cardsremove + "."
+			if (everycards.split(",")[0].substr(2, 1) == suit.substr(0, 1)) {
+				return "";
+			} else if (str.indexOf(everycards.split(",")[0].substr(2, 1)) != -1) {
+				return "no";
+			}
+		}
+	}
+
+</script>
+</body>
 </html>
