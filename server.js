@@ -110,6 +110,9 @@ wss.on('connection', (ws, req) => {
                     distribute("3^" + cards[2]);
                     distribute("4^" + cards[3]);
                     origincallsuit();
+                    wss.clients.forEach((client) => {
+                        client.send("不能亮牌");
+                    });
             //     }
             // });
             return;
