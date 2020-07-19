@@ -169,7 +169,7 @@ wss.on('connection', (ws, req) => {
                     wss.clients.forEach((client) => {
                         client.send("1和3累積墩數: " + winnum[0]);
                     });
-                    if (checkwiner(winnum[0]) == "win") {
+                    if (checkwiner(winnum[0], 1) == "win") {
                         wss.clients.forEach((client) => {
                             client.send("1和3贏了");
                         });
@@ -179,7 +179,7 @@ wss.on('connection', (ws, req) => {
                     wss.clients.forEach((client) => {
                         client.send("2和4累積墩數: " + winnum[1]);
                     });
-                    if (checkwiner(winnum[1]) == "win") {
+                    if (checkwiner(winnum[1], 2) == "win") {
                         wss.clients.forEach((client) => {
                             client.send("2和4贏了");
                         });
@@ -348,25 +348,50 @@ function nokingcards(cards) {
     return winuser;
 }
 
-function checkwiner(num) {
+function checkwiner(winnum, winuser) {
     console.log("喊到噸數:" + callsuitnum);
-    console.log("贏到次數:" + num);
-    if (callsuitnum == 1 && num == 7) {
-        return "win";
-    } else if (callsuitnum == 2 && num == 8) {
-        return "win";
-    } else if (callsuitnum == 3 && num == 9) {
-        return "win";
-    } else if (callsuitnum == 4 && num == 10) {
-        return "win";
-    } else if (callsuitnum == 5 && num == 11) {
-        return "win";
-    } else if (callsuitnum == 6 && num == 12) {
-        return "win";
-    } else if (callsuitnum == 7 && num == 13) {
-        return "win";
+    console.log("贏到次數:" + winnum);
+    
+    let calluser = accumulationcallsuits[accumulationcallsuits.length - 3].substr(0, 1);//喊到的人
+    let winusercamp = winuser % 2;
+    let callusercamp = calluser % 2;
+    
+    if (winusercamp == callusercamp) {
+        if (callsuitnum == 1 && winnum == 7) {
+            return "win";
+        } else if (callsuitnum == 2 && winnum == 8) {
+            return "win";
+        } else if (callsuitnum == 3 && winnum == 9) {
+            return "win";
+        } else if (callsuitnum == 4 && winnum == 10) {
+            return "win";
+        } else if (callsuitnum == 5 && winnum == 11) {
+            return "win";
+        } else if (callsuitnum == 6 && winnum == 12) {
+            return "win";
+        } else if (callsuitnum == 7 && winnum == 13) {
+            return "win";
+        } else {
+            return "";
+        }
     } else {
-        return "";
+        if (callsuitnum == 1 && winnum == 7) {
+            return "win";
+        } else if (callsuitnum == 2 && winnum == 6) {
+            return "win";
+        } else if (callsuitnum == 3 && winnum == 5) {
+            return "win";
+        } else if (callsuitnum == 4 && winnum == 4) {
+            return "win";
+        } else if (callsuitnum == 5 && winnum == 3) {
+            return "win";
+        } else if (callsuitnum == 6 && winnum == 2) {
+            return "win";
+        } else if (callsuitnum == 7 && winnum == 1) {
+            return "win";
+        } else {
+            return "";
+        }
     }
 }
 
