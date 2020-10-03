@@ -105,6 +105,7 @@ wss.on('connection', (ws, req) => {
             //     if (p1 != null && p2 != null && p3 != null && p4 != null) {
                     var cards = getcards();
                     // 存資料庫 發13張
+                    distribute("0^" + cards);
                     distribute("1^" + cards[0]);
                     distribute("2^" + cards[1]);
                     distribute("3^" + cards[2]);
@@ -210,8 +211,11 @@ wss.on('connection', (ws, req) => {
 
 function origincallsuit() {
     var users = [1, 2, 3, 4];
-    let random = getRandom(3);
+    let random = getRandom(4);
     distribute(users[random] + "^能叫牌"); 
+    wss.clients.forEach((client) => {
+        client.send("輪到" + users[random] + "打牌");
+    });
     users.splice(random, 1);
     for (var i = 0; i < users.length; i++) {
         distribute(users[i] + "^不能叫牌");
@@ -243,6 +247,11 @@ function nextcallsuit(userId) {
 function callsuit(users) {
     // console.log("next: " + users)
     distribute(users[0] + "^能叫牌"); 
+
+    wss.clients.forEach((client) => {
+        client.send("輪到" + users[0] + "打牌");
+    });
+    
     for (var i = 1; i < users.length; i++) {
         distribute(users[i] + "^不能叫牌");
     }
@@ -273,6 +282,11 @@ function nextputcard(userId) {
 function putcard(users) {
     console.log("next put: " + users)
     distribute(users[0] + "^能亮牌"); 
+
+    wss.clients.forEach((client) => {
+        client.send("輪到" + users[0] + "打牌");
+    });
+
     for (var i = 1; i < users.length; i++) {
         distribute(users[i] + "^不能亮牌");
     }
