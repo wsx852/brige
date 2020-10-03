@@ -167,7 +167,7 @@
 			<strong>本局出牌：</strong><div id="put1"></div>
 		</div>
 		<div class="area2">
-			<strong>遊戲狀態：</strong>輪到~<span id="accumulation"></span><br>
+			<strong>遊戲狀態：</strong><span id="accumulation"></span><br>
 			<div id="accumulation1"></div>
 		</div>
 		
@@ -187,43 +187,91 @@
 	
 	<!--手牌區開始-->
 	<div id="handcard-area">
-		<div class="left">
-			<strong>黑桃</strong><br>
-			<div id="spade"></div>
-		</div>
-		
-		<div class="right">
-			<strong>愛心</strong><br>
-			<div id="heart"></div>
-		</div>
-		
-		<div class="left">
-			<strong>方塊</strong><br>
-			<div id="square"></div>
-		</div>
-		
-		<div class="right">
-			<strong>梅花</strong><br>
-			<div id="club"></div>
-		</div>
-		
 		<div class="cards">
 			<button onclick = "card1()" id="card1" disabled=true class="btn btn-secondary"></button>
-            <button onclick = "card2()" id="card2" disabled=true class="btn btn-secondary"></button>
-            <button onclick = "card3()" id="card3" disabled=true class="btn btn-secondary"></button>
-            <button onclick = "card4()" id="card4" disabled=true class="btn btn-secondary"></button>
-            <button onclick = "card5()" id="card5" disabled=true class="btn btn-secondary"></button>
-            <button onclick = "card6()" id="card6" disabled=true class="btn btn-secondary"></button>
-            <button onclick = "card7()" id="card7" disabled=true class="btn btn-secondary"></button>
-            <button onclick = "card8()" id="card8" disabled=true class="btn btn-secondary"></button>
-            <button onclick = "card9()" id="card9" disabled=true class="btn btn-secondary"></button>
-            <button onclick = "card10()" id="card10" disabled=true class="btn btn-secondary"></button>
-            <button onclick = "card11()" id="card11" disabled=true class="btn btn-secondary"></button>
-            <button onclick = "card12()" id="card12" disabled=true class="btn btn-secondary"></button>
-            <button onclick = "card13()" id="card13" disabled=true class="btn btn-secondary"></button>
+			<class id="divide1"></class>
+			<button onclick = "card2()" id="card2" disabled=true class="btn btn-secondary"></button>
+			<class id="divide2"></class>
+            		<button onclick = "card3()" id="card3" disabled=true class="btn btn-secondary"></button>
+			<class id="divide3"></class>
+			<button onclick = "card4()" id="card4" disabled=true class="btn btn-secondary"></button>
+			<class id="divide4"></class>
+			<button onclick = "card5()" id="card5" disabled=true class="btn btn-secondary"></button>
+			<class id="divide5"></class>
+           		<button onclick = "card6()" id="card6" disabled=true class="btn btn-secondary"></button>
+			<class id="divide6"></class>
+			<button onclick = "card7()" id="card7" disabled=true class="btn btn-secondary"></button>
+			<class id="divide7"></class>
+			<button onclick = "card8()" id="card8" disabled=true class="btn btn-secondary"></button>
+			<class id="divide8"></class>
+			<button onclick = "card9()" id="card9" disabled=true class="btn btn-secondary"></button>
+			<class id="divide9"></class>
+			<button onclick = "card10()" id="card10" disabled=true class="btn btn-secondary"></button>
+			<class id="divide10"></class>
+			<button onclick = "card11()" id="card11" disabled=true class="btn btn-secondary"></button>
+			<class id="divide11"></class>
+			<button onclick = "card12()" id="card12" disabled=true class="btn btn-secondary"></button>
+			<class id="divide12"></class>
+			<button onclick = "card13()" id="card13" disabled=true class="btn btn-secondary"></button>
+			<class id="divide13"></class>
 		</div>
 	</div>
 	<!--手牌區結束-->
+
+	<div class="allcards" id="allcards">
+		<button onclick = "allcard1()" id="allcard1" disabled=true class="btn btn-secondary"></button>
+		<button onclick = "allcard2()" id="allcard2" disabled=true class="btn btn-secondary"></button>
+		<button onclick = "allcard3()" id="allcard3" disabled=true class="btn btn-secondary"></button>
+		<button onclick = "allcard4()" id="allcard4" disabled=true class="btn btn-secondary"></button>
+		<button onclick = "allcard5()" id="allcard5" disabled=true class="btn btn-secondary"></button>
+		<button onclick = "allcard6()" id="allcard6" disabled=true class="btn btn-secondary"></button>
+		<button onclick = "allcard7()" id="allcard7" disabled=true class="btn btn-secondary"></button>
+		<button onclick = "allcard8()" id="allcard8" disabled=true class="btn btn-secondary"></button>
+		<button onclick = "allcard9()" id="allcard9" disabled=true class="btn btn-secondary"></button>
+		<button onclick = "allcard10()" id="allcard10" disabled=true class="btn btn-secondary"></button>
+		<button onclick = "allcard11()" id="allcard11" disabled=true class="btn btn-secondary"></button>
+		<button onclick = "allcard12()" id="allcard12" disabled=true class="btn btn-secondary"></button>
+		<button onclick = "allcard13()" id="allcard13" disabled=true class="btn btn-secondary"></button><br><hr>
+		<button onclick = "allcard14()" id="allcard14" disabled=true class="btn btn-secondary"></button>
+		<button onclick = "allcard15()" id="allcard15" disabled=true class="btn btn-secondary"></button>
+		<button onclick = "allcard16()" id="allcard16" disabled=true class="btn btn-secondary"></button>
+		<button onclick = "allcard17()" id="allcard17" disabled=true class="btn btn-secondary"></button>
+		<button onclick = "allcard18()" id="allcard18" disabled=true class="btn btn-secondary"></button>
+		<button onclick = "allcard19()" id="allcard19" disabled=true class="btn btn-secondary"></button>
+		<button onclick = "allcard20()" id="allcard20" disabled=true class="btn btn-secondary"></button>
+		<button onclick = "allcard21()" id="allcard21" disabled=true class="btn btn-secondary"></button>
+		<button onclick = "allcard22()" id="allcard22" disabled=true class="btn btn-secondary"></button>
+		<button onclick = "allcard23()" id="allcard23" disabled=true class="btn btn-secondary"></button>
+		<button onclick = "allcard24()" id="allcard24" disabled=true class="btn btn-secondary"></button>
+		<button onclick = "allcard25()" id="allcard25" disabled=true class="btn btn-secondary"></button>
+		<button onclick = "allcard26()" id="allcard26" disabled=true class="btn btn-secondary"></button><br><hr>
+		<button onclick = "allcard27()" id="allcard27" disabled=true class="btn btn-secondary"></button>
+		<button onclick = "allcard28()" id="allcard28" disabled=true class="btn btn-secondary"></button>
+		<button onclick = "allcard29()" id="allcard29" disabled=true class="btn btn-secondary"></button>
+		<button onclick = "allcard30()" id="allcard30" disabled=true class="btn btn-secondary"></button>
+		<button onclick = "allcard31()" id="allcard31" disabled=true class="btn btn-secondary"></button>
+		<button onclick = "allcard32()" id="allcard32" disabled=true class="btn btn-secondary"></button>
+		<button onclick = "allcard33()" id="allcard33" disabled=true class="btn btn-secondary"></button>
+		<button onclick = "allcard34()" id="allcard34" disabled=true class="btn btn-secondary"></button>
+		<button onclick = "allcard35()" id="allcard35" disabled=true class="btn btn-secondary"></button>
+		<button onclick = "allcard36()" id="allcard36" disabled=true class="btn btn-secondary"></button>
+		<button onclick = "allcard37()" id="allcard37" disabled=true class="btn btn-secondary"></button>
+		<button onclick = "allcard38()" id="allcard38" disabled=true class="btn btn-secondary"></button>
+		<button onclick = "allcard39()" id="allcard39" disabled=true class="btn btn-secondary"></button><br><hr>
+		<button onclick = "allcard40()" id="allcard40" disabled=true class="btn btn-secondary"></button>
+		<button onclick = "allcard41()" id="allcard41" disabled=true class="btn btn-secondary"></button>
+		<button onclick = "allcard42()" id="allcard42" disabled=true class="btn btn-secondary"></button>
+		<button onclick = "allcard43()" id="allcard43" disabled=true class="btn btn-secondary"></button>
+		<button onclick = "allcard44()" id="allcard44" disabled=true class="btn btn-secondary"></button>
+		<button onclick = "allcard45()" id="allcard45" disabled=true class="btn btn-secondary"></button>
+		<button onclick = "allcard46()" id="allcard46" disabled=true class="btn btn-secondary"></button>
+		<button onclick = "allcard47()" id="allcard47" disabled=true class="btn btn-secondary"></button>
+		<button onclick = "allcard48()" id="allcard48" disabled=true class="btn btn-secondary"></button>
+		<button onclick = "allcard49()" id="allcard49" disabled=true class="btn btn-secondary"></button>
+		<button onclick = "allcard50()" id="allcard50" disabled=true class="btn btn-secondary"></button>
+		<button onclick = "allcard51()" id="allcard51" disabled=true class="btn btn-secondary"></button>
+		<button onclick = "allcard52()" id="allcard52" disabled=true class="btn btn-secondary"></button>
+	</div>
 
 </div>
 <!--wrapper結束-->
@@ -236,6 +284,10 @@
 	var cardsremove = [];// 發的牌，但出過會移除
 	var everycards = "";// 每回合出的牌
 
+	var firstheart = false;
+	var firstdiamond = false;
+	var firstclub = false;
+	
 	function distribute() {
 		ws.send("發牌");
 	}
@@ -244,6 +296,10 @@
 		var id = document.getElementById("setId").value;
 		HOST = location.origin.replace(/^http/, 'ws') + "?userId=" + id;
 		ws = new WebSocket(HOST);
+		
+		if (id != 0) {
+			document.getElementById("allcards").style.visibility = "hidden";			
+		}
 		ws.onmessage = function (event) {
 			if (event.data.indexOf("connect success") != -1) {
 				alert(event.data);
@@ -258,10 +314,13 @@
 			} else if (event.data.indexOf("出") != -1) {
 				document.getElementById("put1").innerHTML = event.data;
 				everycards = event.data;
+				disappearcard(event.data);
 			} else if (event.data == "能叫牌" || event.data == "不能叫牌") {
 				cancall(event.data);
 			} else if (event.data == "能亮牌" || event.data == "不能亮牌") {
 				canput(event.data); 
+			} else if (event.data.indexOf("輪到") != -1) {
+				document.getElementById("accumulation").innerHTML = event.data;
 			} else if (event.data.indexOf("累積") != -1) {
 				if (event.data.substr(0, 1) == 1) {
 					document.getElementById("accumulation1").innerHTML = event.data;
@@ -271,7 +330,7 @@
 			} else if (event.data.indexOf("贏了") != -1) {
 				document.getElementById("win1").innerHTML = "已經獲得勝利~~~~~~~~~~~~~~" + event.data + "~~~~~~~~~~~~~~~~~~~~~~";
 			} else {
-				distributecards(event.data);
+				distributecards(event.data, id);
 			}
 		}
 		keepheartbeat();
@@ -282,22 +341,123 @@
 		}
 	}
 
+	function disappearcard(message) {
+		var everyround = message.split(",");// 每回合出的牌
+		for (var i = 0; i < 52; i++) {
+			if (cards[i] == everyround[everyround.length - 1].substr(2)) {
+				document.getElementById("allcard" + (i + 1)).style.visibility = "hidden";
+			}
+		}
+	}
+	
 	function distributecards(message) {//發牌
-		cards = message.split(",");
-		cardsremove = message.split(",");
+		firstheart = false;
+		firstdiamond = false;
+		firstclub = false;
+		
 		document.getElementById("callsuit").value = "目前王牌: ";
 		document.getElementById("call1").innerHTML = "";
 		document.getElementById("put1").innerHTML = "";
-		document.getElementById("accumulation1").innerHTML = "累積墩數";
-		document.getElementById("accumulation2").innerHTML = "累積墩數";
+		document.getElementById("accumulation1").innerHTML = "1和3累積墩數";
+		document.getElementById("accumulation2").innerHTML = "2和4累積墩數";
 		document.getElementById("win1").innerHTML = "";
 
-		for (var i = 0; i < 13; i++) {
-			document.getElementById("card" + (i + 1)).innerHTML = cards[i];
-			document.getElementById("card" + (i + 1)).style.visibility = "visible";
+		cards = message.split(",");
+		cardsremove = message.split(",");
+		
+		if (id == 0) {
+			for (var i = 0; i < 52; i++) {
+				document.getElementById("allcard" + (i + 1)).innerHTML = cards[i];
+				document.getElementById("allcard" + (i + 1)).style.visibility = "visible";
+			}
+			var obj2 = document.getElementById("handcard-area");
+			var parentObj = obj2.parentNode;
+			parentObj.removeChild(obj2);
+		} else {
+			cards = sortcolor(cards);
+			cardsremove = sortcolor(cardsremove);
+			for (var i = 0; i < 13; i++) {
+				document.getElementById("divide" + (i + 1)).innerHTML = "";
+			}
+			for (var i = 0; i < 13; i++) {
+				document.getElementById("card" + (i + 1)).innerHTML = cards[i];
+				document.getElementById("card" + (i + 1)).style.visibility = "visible";
+				if (cards[i].substr(0,1) == "心" && firstheart == false) {
+					document.getElementById("divide" + (i)).innerHTML = "<br>";
+					firstheart = true;
+				}
+				if (cards[i].substr(0,1) == "方" && firstdiamond == false) {
+					document.getElementById("divide" + (i)).innerHTML = "<br>";
+					firstdiamond = true;
+				}
+				if (cards[i].substr(0,1) == "梅" && firstclub == false) {
+					document.getElementById("divide" + (i)).innerHTML = "<br>";
+					firstclub = true;
+				}
+
+			}
 		}
 	}
+	
+	function sortcolor(cards) {
+		var spades = [];
+		var hearts = [];
+		var diamonds = [];
+		var clubs = [];
+		for (var i = 0; i < cards.length; i++) {
+			if (cards[i].substr(0,1) == "桃") {
+				spades.push(cards[i]);
+			}
+			if (cards[i].substr(0,1) == "心") {
+				hearts.push(cards[i]);
+			}
+			if (cards[i].substr(0,1) == "方") {
+				diamonds.push(cards[i]);
+			}
+			if (cards[i].substr(0,1) == "梅") {
+				clubs.push(cards[i]);
+			}
+		}
+		var allcards = [];
+		for (var i = 0; i < sortcard(spades, "桃").length; i++) {
+			allcards.push(sortcard(spades, "桃")[i]);
+		}
+		for (var i = 0; i < sortcard(hearts, "心").length; i++) {
+			allcards.push(sortcard(hearts, "心")[i]);
+		}
+		for (var i = 0; i < sortcard(diamonds, "方").length; i++) {
+			allcards.push(sortcard(diamonds, "方")[i]);
+		}
+		for (var i = 0; i < sortcard(clubs, "梅").length; i++) {
+			allcards.push(sortcard(clubs, "梅")[i]);
+		}
+		return allcards;
+	}
 
+	function sortcard(cards, color) {
+		if (cards.indexOf(color + "10") != -1) {
+			cards.splice(cards.indexOf(color + "10"), 1);
+			cards.push(color + "10");			
+		}
+		if (cards.indexOf(color + "11") != -1) {
+			cards.splice(cards.indexOf(color + "11"), 1);
+			cards.push(color + "11");		
+		}
+		if (cards.indexOf(color + "12") != -1) {
+			cards.splice(cards.indexOf(color + "12"), 1);
+			cards.push(color + "12");
+		}
+		if (cards.indexOf(color + "13") != -1) {
+			cards.splice(cards.indexOf(color + "13"), 1);
+			cards.push(color + "13");
+		}
+		if (cards.indexOf(color + "1") != -1) {
+			cards.splice(cards.indexOf(color + "1"), 1);
+			cards.push(color + "1");		
+		}
+		return cards;
+	}
+	
 	function cancall(message) {
 		if (message == "能叫牌") {
 			document.getElementById("suit1").disabled = false;
