@@ -453,7 +453,7 @@ function sendeverybody(userId, message) {
     if(message.indexOf("^") == -1) {
         console.log("給所有人");
         wss.clients.forEach((client) => {
-            client.send(userId + ": " + message);
+            client.send(userId + "說 " + message);
         });
         // for(var userdicId in wsuserdic) {
         //     wsuserdic[userId].send(sendmessage);
