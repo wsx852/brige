@@ -350,7 +350,7 @@
 		}
 	}
 	
-	function distributecards(message) {//發牌
+	function distributecards(message, id) {//發牌
 		firstheart = false;
 		firstdiamond = false;
 		firstclub = false;
@@ -358,8 +358,8 @@
 		document.getElementById("callsuit").value = "目前王牌: ";
 		document.getElementById("call1").innerHTML = "";
 		document.getElementById("put1").innerHTML = "";
-		document.getElementById("accumulation1").innerHTML = "1和3累積墩數";
-		document.getElementById("accumulation2").innerHTML = "2和4累積墩數";
+		document.getElementById("accumulation1").innerHTML = "1和3累積墩數:";
+		document.getElementById("accumulation2").innerHTML = "2和4累積墩數:";
 		document.getElementById("win1").innerHTML = "";
 
 		cards = message.split(",");
@@ -544,7 +544,7 @@
 	function keepheartbeat() {
 		heartbeat = setInterval(function () {
 			ws.send("心跳");
-		}, 40000);
+		}, 35000);
 	}
 
 	function card1() {
