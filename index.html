@@ -380,7 +380,7 @@
 				document.getElementById("divide" + (i + 1)).innerHTML = "";
 			}
 			for (var i = 0; i < 13; i++) {
-				document.getElementById("card" + (i + 1)).innerHTML = cards[i];
+				document.getElementById("card" + (i + 1)).innerHTML = changenumber(cards[i]);
 				document.getElementById("card" + (i + 1)).style.visibility = "visible";
 				if (cards[i].substr(0,1) == "心" && firstheart == false) {
 					document.getElementById("divide" + (i)).innerHTML = "<br>";
@@ -456,6 +456,22 @@
 			cards.push(color + "1");		
 		}
 		return cards;
+	}
+	
+	function changenumber(card) {
+		if (card.substr(1) == "11") {
+			return card.substr(0,1) + "J";
+		}
+		if (card.substr(1) == "12") {
+			return card.substr(0,1) + "Q";
+		}
+		if (card.substr(1) == "13") {
+			return card.substr(0,1) + "K";
+		}
+		if (card.substr(1) == "1") {
+			return card.substr(0,1) + "A";
+		}
+		return card;
 	}
 	
 	function cancall(message) {
@@ -552,7 +568,7 @@
 			alert("不可以出這個花色");
 			return;
 		}
-		ws.send("出" + cards[0]);
+		ws.send("出" + cards[0] + "　");
 		cardsremove.forEach(function(item, index) {
 			if (item == cards[0]) {
 				cardsremove.splice(index, 1);
@@ -566,7 +582,7 @@
 			alert("不可以出這個花色");
 			return;
 		}
-		ws.send("出" + cards[1]);
+		ws.send("出" + cards[1] + "　");
 		cardsremove.forEach(function(item, index) {
 			if (item == cards[1]) {
 				cardsremove.splice(index, 1);
@@ -580,7 +596,7 @@
 			alert("不可以出這個花色");
 			return;
 		}
-		ws.send("出" + cards[2]);
+		ws.send("出" + cards[2] + "　");
 		cardsremove.forEach(function(item, index) {
 			if (item == cards[2]) {
 				cardsremove.splice(index, 1);
@@ -594,7 +610,7 @@
 			alert("不可以出這個花色");
 			return;
 		}
-		ws.send("出" + cards[3]);
+		ws.send("出" + cards[3] + "　");
 		cardsremove.forEach(function(item, index) {
 			if (item == cards[3]) {
 				cardsremove.splice(index, 1);
@@ -608,7 +624,7 @@
 			alert("不可以出這個花色");
 			return;
 		}
-		ws.send("出" + cards[4]);
+		ws.send("出" + cards[4] + "　");
 		cardsremove.forEach(function(item, index) {
 			if (item == cards[4]) {
 				cardsremove.splice(index, 1);
@@ -622,7 +638,7 @@
 			alert("不可以出這個花色");
 			return;
 		}
-		ws.send("出" + cards[5]);
+		ws.send("出" + cards[5] + "　");
 		cardsremove.forEach(function(item, index) {
 			if (item == cards[5]) {
 				cardsremove.splice(index, 1);
@@ -636,7 +652,7 @@
 			alert("不可以出這個花色");
 			return;
 		}
-		ws.send("出" + cards[6]);
+		ws.send("出" + cards[6] + "　");
 		cardsremove.forEach(function(item, index) {
 			if (item == cards[6]) {
 				cardsremove.splice(index, 1);
@@ -650,7 +666,7 @@
 			alert("不可以出這個花色");
 			return;
 		}
-		ws.send("出" + cards[7]);
+		ws.send("出" + cards[7] + "　");
 		cardsremove.forEach(function(item, index) {
 			if (item == cards[7]) {
 				cardsremove.splice(index, 1);
@@ -664,7 +680,7 @@
 			alert("不可以出這個花色");
 			return;
 		}
-		ws.send("出" + cards[8]);
+		ws.send("出" + cards[8] + "　");
 		cardsremove.forEach(function(item, index) {
 			if (item == cards[8]) {
 				cardsremove.splice(index, 1);
@@ -678,7 +694,7 @@
 			alert("不可以出這個花色");
 			return;
 		}
-		ws.send("出" + cards[9]);
+		ws.send("出" + cards[9] + "　");
 		cardsremove.forEach(function(item, index) {
 			if (item == cards[9]) {
 				cardsremove.splice(index, 1);
@@ -692,7 +708,7 @@
 			alert("不可以出這個花色");
 			return;
 		}
-		ws.send("出" + cards[10]);
+		ws.send("出" + cards[10] + "　");
 		cardsremove.forEach(function(item, index) {
 			if (item == cards[10]) {
 				cardsremove.splice(index, 1);
@@ -706,7 +722,7 @@
 			alert("不可以出這個花色");
 			return;
 		}
-		ws.send("出" + cards[11]);
+		ws.send("出" + cards[11] + "　");
 		cardsremove.forEach(function(item, index) {
 			if (item == cards[11]) {
 				cardsremove.splice(index, 1);
@@ -720,7 +736,7 @@
 			alert("不可以出這個花色");
 			return;
 		}
-		ws.send("出" + cards[12]);
+		ws.send("出" + cards[12] + "　");
 		cardsremove.forEach(function(item, index) {
 			if (item == cards[12]) {
 				cardsremove.splice(index, 1);
