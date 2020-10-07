@@ -312,7 +312,7 @@
 					document.getElementById("call1").innerHTML = event.data;
 				}
 			} else if (event.data.indexOf("出") != -1) {
-				document.getElementById("put1").innerHTML = event.data;
+				document.getElementById("put1").innerHTML = changeputnumber(event.data);
 				everycards = event.data;
 				disappearcard(event.data);
 			} else if (event.data == "能叫牌" || event.data == "不能叫牌") {
@@ -340,7 +340,26 @@
 			document.getElementById("distribute").disabled = false;
 		}
 	}
-
+	
+	function changeputnumber(message) {
+		var everyround = message.split(",");// 每回合出的牌
+		for (var i = 0; i < everyround.length; i++) {
+			if (everyround[i].substr(3) == "11　") {
+				everyround[i] = everyround[i].substr(0,3) + "J　"
+			}
+			if (everyround[i].substr(3) == "12　") {
+				everyround[i] = everyround[i].substr(0,3) + "Q　"
+			}
+			if (everyround[i].substr(3) == "13　") {
+				everyround[i] = everyround[i].substr(0,3) + "K　"
+			}
+			if (everyround[i].substr(3) == "1　") {
+				everyround[i] = everyround[i].substr(0,3) + "A　"
+			}
+		}
+		return everyround;
+	}
+	
 	function disappearcard(message) {
 		var everyround = message.split(",");// 每回合出的牌
 		for (var i = 0; i < 52; i++) {
