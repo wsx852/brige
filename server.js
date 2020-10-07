@@ -177,6 +177,10 @@ wss.on('connection', (ws, req) => {
                         wss.clients.forEach((client) => {
                             client.send("1和3贏了");
                         });
+                        for (var i = 1; i < 5; i++) {
+                            distribute(i + "^不能亮牌");
+                        }
+                        return;
                     }
                 } else {
                     winnum[1] = winnum[1] + 1;
@@ -187,6 +191,10 @@ wss.on('connection', (ws, req) => {
                         wss.clients.forEach((client) => {
                             client.send("2和4贏了");
                         });
+                        for (var i = 1; i < 5; i++) {
+                            distribute(i + "^不能亮牌");
+                        }
+                        return;
                     }
                 }
                 nextputcard(winuser);
