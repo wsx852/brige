@@ -383,7 +383,8 @@
 
 		cards = message.split(",");
 		cardsremove = message.split(",");
-		
+		everycards = undefined;
+
 		if (id == 0) {
 			for (var i = 0; i < 52; i++) {
 				document.getElementById("allcard" + (i + 1)).innerHTML = cards[i];
